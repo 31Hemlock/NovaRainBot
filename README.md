@@ -27,7 +27,7 @@ For the daily data, I scrape Wunderground's website with [Firefox](https://www.m
 
 <h2> Building a machine learning algorithm </h2>
 
-The machine learning algorithm is a binary classification model that was trained by the script [TensorMADISTrain](https://github.com/31Hemlock/NovaRainBot/blob/master/TensorMADISTrain.py), which utilizes the high-level [Keras](https://keras.io/) API through [Tensorflow](https://www.tensorflow.org/). I use a sequential model that outputs to a single-node sigmoid activation layer in order to make my binary ('yes it will rain' or 'no it will not rain') prediction. While developing the algorithm I noticed it had a tendency to predict the null hypothesis, so I oversampled and undersampled the dataset using SMOTETomek from [Imblearn](https://github.com/scikit-learn-contrib/imbalanced-learn/tree/master/imblearn) to create a balanced training set. 
+The machine learning algorithm is a binary classification model that was trained by the script [OverUnderSampling](https://github.com/31Hemlock/NovaRainBot/blob/master/OverUnderSampling.py), which utilizes the high-level [Keras](https://keras.io/) API through [Tensorflow](https://www.tensorflow.org/). I use a sequential model that outputs to a single-node sigmoid activation layer in order to make my binary ('yes it will rain' or 'no it will not rain') prediction. While developing the algorithm I noticed it had a tendency to predict the null hypothesis, so I oversampled and undersampled the dataset using SMOTETomek from [Imblearn](https://github.com/scikit-learn-contrib/imbalanced-learn/tree/master/imblearn) to create a balanced training set. 
 
 <h2> Running the algorithm and posting to Twitter </h2>
 
