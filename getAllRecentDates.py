@@ -11,7 +11,7 @@ import os
 # ('pandaData Daily.csv') and the new date given by the user. It puts this data into text files and appends it to the end of the main file.
 # Change the mainData variable based on where the complete data file is located.
 def updateWeatherFile(dateArg): #dateArg = end date
-    mainData = os.path.join(sys.path[0], 'data\\FifteenYearWeatherDataFilledMissing.csv')
+    mainData = os.path.join(sys.path[0], 'data', 'FifteenYearWeatherDataFilledMissing.csv')
 
     # Format date
     if dateArg:

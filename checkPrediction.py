@@ -5,8 +5,8 @@ import sys
 # and checks if they're equal. Prints date + result to Validation.txt
 
 def checkIfCorrect():
-    with open(os.path.join(sys.path[0], 'data\\lastPred.txt'), 'r') as f:
-        with open(os.path.join(sys.path[0], 'data\\FifteenYearWeatherDataFilledMissing.csv'), 'r') as t:
+    with open(os.path.join(sys.path[0], 'data', 'lastPred.txt'), 'r') as f:
+        with open(os.path.join(sys.path[0], 'data', 'FifteenYearWeatherDataFilledMissing.csv'), 'r') as t:
             for line in t:
                 pass
             last_line = line
@@ -30,7 +30,7 @@ def checkIfCorrect():
     print(sol)
 
     # Write most recent solution
-    with open(os.path.join(sys.path[0], 'data\\validation.txt'), 'a+') as p:
+    with open(os.path.join(sys.path[0], 'data', 'validation.txt'), 'a+') as p:
         p.write(date)
         p.write('\n')
         p.write(sol)
@@ -38,7 +38,7 @@ def checkIfCorrect():
     rightCount = 0
     totalCount = 0
     # Calculate accuracy
-    with open(os.path.join(sys.path[0], 'data\\validation.txt'), 'r') as p:
+    with open(os.path.join(sys.path[0], 'data', 'validation.txt'), 'r') as p:
         x = str(p).splitlines()
         relevant = x[::2]
         for item in relevant:
@@ -47,6 +47,6 @@ def checkIfCorrect():
             totalCount += 1
     
     # Write accuracy
-    with open(os.path.join(sys.path[0], 'data\\MLNRAccuracy.txt'), 'w+') as p:
+    with open(os.path.join(sys.path[0], 'data', 'MLNRAccuracy.txt'), 'w+') as p:
         p.write('' + str(rightCount) + ' / ' + str(totalCount) + ' = ' + str(rightCount/totalCount))
 

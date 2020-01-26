@@ -16,10 +16,10 @@ from bs4 import BeautifulSoup
 
 # Ask the algorithm what the answer is.
 def predictAnswer():
-    saved_model = tf.keras.models.load_model(os.path.join(sys.path[0], 'savedmodel\\cp.ckpt'))
+    saved_model = tf.keras.models.load_model(os.path.join(sys.path[0], 'savedmodel', 'cp.ckpt'))
     x = datetime.datetime.now()
     y = x.strftime("%A" + ", " + "%B" + " " + "%d" + ", " + "%Y" + ": ")
-    x_test = pd.read_csv(os.path.join(sys.path[0], 'data\\FifteenYearWeatherDataFilledMissing.csv'))
+    x_test = pd.read_csv(os.path.join(sys.path[0], 'data', 'FifteenYearWeatherDataFilledMissing.csv'))
     series = [[],[],[]]
     for item in x_test.Time:
         x = item.split('-')
@@ -32,7 +32,7 @@ def predictAnswer():
     x_test = x_test.astype(float)
     x_test = pd.DataFrame(x_test.tail(10))
 
-    min_max_scaler = joblib.load(os.path.join(sys.path[0], 'data\\minmaxscaler20191227-140117.pkl'))
+    min_max_scaler = joblib.load(os.path.join(sys.path[0], 'data', 'minmaxscaler20191227-140117.pkl'))
     x_test = min_max_scaler.transform(x_test)
     x_cats = pd.get_dummies(series[1])
     x_cats = x_cats.tail(10)
@@ -70,7 +70,6 @@ def postTweet(tweet):
     consumer_secret = os.getenv('consumer_secret')
     access_token_key = os.getenv('access_token_key')
     access_token_secret = os.getenv('access_token_secret')
-
 
     #Only uncomment the below lines if you want to post a tweet.
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)

@@ -24,7 +24,7 @@ def getRecentWeather(date):
     options.add_argument('load-extension=' + path_to_extension)
     options.headless = True
     options.add_argument('log-level=3')
-    driver = webdriver.Firefox(executable_path=(os.path.join(sys.path[0], 'geckodriver.exe')), options=options) #, options=options
+    driver = webdriver.Firefox(options=options) #, options=options
 
     # Run firefox
     print('Start firefox')
